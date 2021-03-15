@@ -21,7 +21,7 @@ console.log("========");
 
 // 3
 function werewolf(a, b) {
-    if (a === `Muppet` && b === `Show`){
+    if (a === `Muppet` && b === `Show`) {
         console.log(`It's time to play the music. It's time to light the lights.`);
     }
 }
@@ -35,16 +35,24 @@ function kermit() {
 }
 console.log(kermit());
 
+kermit = () => `Kermit the Frog`;
+
 console.log("========");
 
 // 5
 function muppetShowSeasons(seasons) {
-    if (seasons === "5"){
+    if (seasons === "5") {
         return true;
-    } else{
+    } else {
         return false;
     }
 }
+// function muppetShowSeasons(seasons) {
+//     if (seasons === "5") {
+//         return true;
+//     }
+//     return false;
+// }
 const season = muppetShowSeasons("5");
 // const season = muppetShowSeasons("4"); // Will not return true since the argument does not equal "5"
 console.log(season);
@@ -71,7 +79,7 @@ showMuppets(muppets);
 console.log("========");
 
 // 7
-const manOrMuppet = function(){
+const manOrMuppet = function () {
     console.log(`Am I a man or am I a Muppet?`);
 }
 manOrMuppet();
@@ -101,6 +109,7 @@ function uppercaseMovies(a) {
     return a.toUpperCase();
 }
 const upperMovies = newMuppetMovies.map(uppercaseMovies);
+// const upperMovies = newMuppetMovies.map(a => a.toUpperCase());
 console.log(upperMovies);
 
 // function uppercaseMovies() {
@@ -128,6 +137,8 @@ function oldMovies(movie) {
 const twoMovies = oldMuppetMovies.filter(oldMovies);
 console.log(twoMovies);
 
+console.log("========");
+
 // BONUS
 
 // 13a
@@ -144,4 +155,43 @@ const charactersTwo = [
 ];
 
 // 13c
-// function randomMuppet(characters)
+function randomMuppet(characters) {
+    console.log(characters[Math.floor(Math.random() * characters.length)]);
+}
+// OR
+// function randomMuppet(characters) {
+//     const randomIndex = Math.floor(Math.random() * characters.length);
+//     const muppet = characters[randomIndex]
+//     console.log(muppet);
+// }
+
+// 13d
+randomMuppet(charactersOne);
+randomMuppet(charactersTwo);
+
+console.log('=======');
+
+// 14
+function isLetter(str) {
+    return str.length === 1 && str.match(/[a-z]/i)
+}
+function caps(string) {
+    let newString = "";
+    let n = 0;
+    for (letter of string) {
+        if (isLetter(letter)){
+            if (n % 2 === 0) {
+                newString += letter.toUpperCase();
+                n++;
+            } else {
+                newString += letter.toLowerCase();
+                n++;
+            }
+        } else {
+            newString += letter;
+        }
+    }
+    return newString;
+}
+
+console.log(caps(`I Love The Muppets`));
